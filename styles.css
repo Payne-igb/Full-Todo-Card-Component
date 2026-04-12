@@ -64,6 +64,10 @@ body {
   gap: 6px;
 }
 
+#timer.time-almost-up {
+  color: red;
+}
+
 .pills {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -98,13 +102,7 @@ body {
   border: 2px solid transparent;
 }
 
-/* .btn:focus {
-  border: 2px solid green;
-} */
 
-/* .btn:focus {
-  transform: scale(0.9);
-} */
 
 .btn:hover {
   background-color: rgb(97, 97, 172);
