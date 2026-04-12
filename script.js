@@ -32,7 +32,6 @@ setInterval(() => {
 }, 60000);
 timeRemaining = calculateTime();
 timer.textContent = timeRemaining;
-dueDate.textContent = now.toDateString();
 
 checkbox.addEventListener("change", () => {
   if (checkbox.checked) {
