@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  margin: auto;
+  width: min(500px, 90%);
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+}
+
+.todo-header {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.todo-header h2 {
+  line-height: 1.4rem;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.todo-header h2.done {
+  text-decoration: line-through;
+}
+
+.todo-priority {
+  background-color: #ffe5e5;
+  font-size: 0.8rem;
+  color: #a00;
+  padding: 0.2rem 0.3rem;
+  border-radius: 5px;
+}
+
+.description {
+  color: #555;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.dates {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pills {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  place-content: center;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  background: #e0e7ff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 0.3rem 0.5rem;
+  background-color: rgb(45, 45, 126);
+  font-size: 1rem;
+  color: white;
+  border-radius: 4px;
+  margin-block: 1rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+/* .btn:focus {
+  border: 2px solid green;
+} */
+
+/* .btn:focus {
+  transform: scale(0.9);
+} */
+
+.btn:hover {
+  background-color: rgb(97, 97, 172);
+}
+
+.btn:active {
+  background-color: rgb(20, 20, 65);
+  transform: scale(0.95);
+}
+
+
+.bottom {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.2rem;
+  justify-content: center;
+}
+
+.inputCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.complete-text {
+  font-size: 0.8rem;
+}
+
+.todo-status {
+  background-color: rgb(167, 167, 250);
+  color: blue;
+  padding: 0.2rem 0.3rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+.todo-status.done {
+  background-color: rgb(196, 244, 196);
+  color: rgb(5, 75, 5);
+  padding: 0.2rem 0.4rem;
+  font-weight: 500;
+}
+
+@media (max-width: 413px) {
+  /* .todo-header {
+    flex-direction: column;
+  } */
+  .todo-priority,
+  .todo-status {
+    text-align: center;
+  }
+
+  .todo-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}
