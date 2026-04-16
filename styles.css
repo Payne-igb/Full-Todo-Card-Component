@@ -22,9 +22,13 @@ body {
   padding: 1rem 1.5rem;
 }
 
+.hidden {
+  display: none;
+}
+
 .todo-header {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr auto;
   gap: 0.5rem;
   align-items: center;
 }
@@ -40,19 +44,77 @@ body {
   text-decoration: line-through;
 }
 
+.todo-priority-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center
+}
+
 .todo-priority {
-  background-color: #ffe5e5;
   font-size: 0.8rem;
-  color: #a00;
   padding: 0.2rem 0.3rem;
   border-radius: 5px;
+}
+
+.todo-priority.high {
+  background-color: #ffe5e5;
+  color: #a00;
+}
+
+.todo-priority.medium {
+  color: rgb(77, 77, 35);
+  background-color: rgb(154, 154, 78);
+}
+
+.todo-priority.low {
+  color: white;
+  background-color: rgb(31, 81, 101);
+}
+
+.priority-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.priority-indicator.high {
+  background-color: red;
+}
+
+.priority-indicator.medium {
+  background-color: rgb(77, 77, 35);;
+}
+
+.priority-indicator.low {
+  background-color: rgb(31, 81, 101);
+}
+
+.description-container.collapsible {
+  height: 80px;
+  overflow: hidden;
+  margin-bottom: 8px;
 }
 
 .description {
   color: #555;
   margin-top: 1rem;
-  margin-bottom: 2rem;
   font-weight: 500;
+}
+
+.expand-collapse-container {
+  margin-bottom: 1.5rem;
+  margin: auto;
+  width: fit-content;
+}
+
+.expand-btn {
+  padding: 0.2rem;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: rgb(45, 45, 126);
+  cursor: pointer;
 }
 
 .dates {
@@ -64,6 +126,18 @@ body {
   gap: 6px;
 }
 
+.overdue-timer {
+  display: none;
+}
+
+.overdue-timer.visible {
+  color: red;
+  display: flex;
+}
+
+.overdue-timer.visible.hidden {
+  display: none;
+}
 #timer.time-almost-up {
   color: red;
 }
@@ -71,7 +145,7 @@ body {
 .pills {
   display: grid;
   grid-template-columns: 1fr auto;
-  place-content: center;
+  align-items: center;
 }
 
 .tags {
@@ -102,8 +176,6 @@ body {
   border: 2px solid transparent;
 }
 
-
-
 .btn:hover {
   background-color: rgb(97, 97, 172);
 }
@@ -113,13 +185,21 @@ body {
   transform: scale(0.95);
 }
 
-
 .bottom {
   margin-top: 0.5rem;
   display: flex;
+  align-items: center;
   gap: 0.2rem;
   justify-content: center;
 }
+
+.bottom input {
+  width: 20px;
+}
+
+/* .bottom label {
+  white-space: nowrap;
+} */
 
 .inputCheckbox {
   display: flex;
@@ -132,11 +212,19 @@ body {
 }
 
 .todo-status {
-  background-color: rgb(167, 167, 250);
-  color: blue;
   padding: 0.2rem 0.3rem;
   border-radius: 5px;
   font-size: 0.8rem;
+}
+
+.todo-status.pending {
+  color: white;
+  background-color: rgb(31, 81, 101);
+}
+
+.todo-status.progress {
+  background-color: rgb(167, 167, 250);
+  color: blue;
 }
 
 .todo-status.done {
@@ -146,10 +234,49 @@ body {
   font-weight: 500;
 }
 
+.edit-container {
+  display: grid;
+  grid-template-columns: 100px auto;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid rgb(45, 45, 126);
+}
+
+select:hover {
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.mistake {
+  border: 1px solid red;
+}
+
+.error.hidden {
+  display: none;
+}
 @media (max-width: 413px) {
-  /* .todo-header {
-    flex-direction: column;
-  } */
   .todo-priority,
   .todo-status {
     text-align: center;
@@ -161,5 +288,19 @@ body {
 
   .description {
     font-size: 0.9rem;
+  }
+
+  .edit-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    align-items: start;
+    text-align: left;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
   }
 }
